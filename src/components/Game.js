@@ -43,9 +43,9 @@ function Game() {
 
   //Handle player
   const handleClick = (i) => {
-    if (squares(index) || winner) return;
+    if (squares[i] || winner) return;
     const newSquare = squares.slice();
-    newSquare[index] = xIsNext ? "X" : "O";
+    newSquare[i] = xIsNext ? "X" : "O";
     setSquares(newSquare);
     setXIsNext(!xIsNext);
   };
@@ -62,7 +62,7 @@ function Game() {
       <h2 className="result">Winner is: {winner ? winner : "N/N"}</h2>
       <div className="game">
         <span className="player">Next player is: {xIsNext ? "X" : "O"}</span>
-        <Board squares={squares} handleClick={handleClick(i)} />
+        <Board squares={squares} handleClick={handleClick} />
       </div>
       <button onClick={handleRestart} className="restart-btn">
         Restart
